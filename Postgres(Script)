@@ -1,0 +1,37 @@
+
+////////////////////////
+// Criando o banco ...
+////////////////////////
+
+-- Database: crudexemplo
+
+-- DROP DATABASE crudexemplo;
+
+CREATE DATABASE crudexemplo
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Portuguese_Brazil.1252'
+       LC_CTYPE = 'Portuguese_Brazil.1252'
+       CONNECTION LIMIT = -1;
+-------------------------------------------------------------------------------------------------------------------------------------
+///////////////////////
+// Criando a tabela ...
+///////////////////////
+
+-- Table: public.crudtb
+
+-- DROP TABLE public.crudtb;
+
+CREATE TABLE public.crudtb
+(
+  id integer NOT NULL DEFAULT nextval('crudtb_id_seq'::regclass),
+  objeto character varying(30) NOT NULL,
+  descricao character varying(200),
+  CONSTRAINT primaria PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.crudtb
+  OWNER TO postgres;
